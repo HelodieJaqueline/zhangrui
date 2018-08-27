@@ -5,7 +5,7 @@
 
 	<groupId>com.zhangrui</groupId>
 	<artifactId>zhangrui</artifactId>
-	<version>1.0</version>
+	<version>1.1</version>
 	<packaging>pom</packaging>
 
 	<name>zhangrui</name>
@@ -19,6 +19,9 @@
 	</parent>
 	<modules>
 		<module>zhangrui-api</module>
+		<module>zhangrui-service</module>
+		<module>zhangrui-repository</module>
+		<module>zhangrui-domain</module>
 	</modules>
 
 	<properties>
@@ -71,21 +74,6 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.8.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.8.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.8.2</version>
         </dependency>
 	</dependencies>
 

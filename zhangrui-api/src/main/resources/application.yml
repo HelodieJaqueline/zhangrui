@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://192.168.77.66:3306/test_jdbc?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8&amp;autoReconnect=true
+    url: jdbc:mysql://master:3306/test_jdbc?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8&amp;autoReconnect=true
     username: root
     password: zr@123456
     driver-class-name: com.mysql.jdbc.Driver
@@ -23,7 +23,7 @@ spring:
                        loginUsername: druid
                        loginPassword: druid
 mybatis:
-    mapper-locations: classpath:com/zhangrui/*/mapping/*.xml
+    mapper-locations: com.zhangrui.*.repository.mapper/*.xml
 server:
   port: 8080
   context-path: /zhangrui-api

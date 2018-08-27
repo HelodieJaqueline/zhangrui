@@ -1,4 +1,4 @@
-package com.zhangrui.mapper;
+package com.zhangrui.user.repository.mapper;
 
 
 import com.zhangrui.model.User;

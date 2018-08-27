@@ -1,4 +1,4 @@
-package com.zhangrui.repository;
+package com.zhangrui.user.repository;
 
 
 import com.zhangrui.model.User;

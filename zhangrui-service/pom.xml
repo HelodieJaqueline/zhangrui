@@ -7,26 +7,14 @@
         <artifactId>zhangrui</artifactId>
         <version>1.1</version>
     </parent>
-	<name>zhangrui-api</name>
+	<packaging>jar</packaging>
+	<name>zhangrui-service</name>
+    <artifactId>zhangrui-service</artifactId>
 	<description>Demo project for Spring Boot</description>
-    <artifactId>zhangrui-api</artifactId>
-    <packaging>war</packaging>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-<!--			<scope>provided</scope>-->
-		</dependency>
-		<dependency>
 			<groupId>com.zhangrui</groupId>
-			<artifactId>zhangrui-service</artifactId>
+			<artifactId>zhangrui-repository</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
