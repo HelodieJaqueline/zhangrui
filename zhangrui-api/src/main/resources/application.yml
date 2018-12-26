@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://master:3306/test_jdbc?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8&amp;autoReconnect=true
+    url: jdbc:mysql://master:3306/a_user?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8&amp;autoReconnect=true
     username: root
-    password: zr@123456
+    password: ysten123
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:

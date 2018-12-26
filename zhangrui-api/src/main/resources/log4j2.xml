@@ -4,7 +4,7 @@
 		<!--log file path-->
 		<Property name="LOG_HOME">/data/logs/</Property>
 		<!--log file name-->
-		<property name="FILE_NAME">yst-lbss-api</property>
+		<property name="FILE_NAME">zhanguri-api</property>
 		<!--log file pattern-->
 		<property name="LOG_PATTERN">%d [%t] %level (%F %M %L) %X{logid} %X{REQUEST_EVENTSIGN} %X{HOST_IP} - %msg%n</property>
 		<property name="LOG_PATTERN_CONSOLE">%d [%t] %level (%F %M %L) %X{logid} %X{REQUEST_EVENTSIGN} %X{HOST_IP} - %msg%n</property>
