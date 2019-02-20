@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @Slf4j
@@ -40,20 +39,14 @@ public class TestController {
 		return user;
 	}
 
-	public static void main(String[] args) {
-		Integer a = -128;
-		Integer b = 127;
-		Integer c = 1289;
-		List<String> list = new ArrayList<>();
-		list.add("张三");
-		list.add("李四");
-		list.add("王五");
-		list.add("赵六");
-		for (Iterator<String> iterator = list.iterator(); iterator.hasNext(); ) {
-			String next = iterator.next();
-			if ("赵六".equals(next)) {
-				iterator.remove();
-			}
+
+	@RequestMapping(value = "testOutOfMemoryError")
+	@ResponseBody
+	public void testOutOfMemoryError(HttpServletRequest request, HttpServletResponse response,Integer count){
+		Map<Integer, String> map = new HashMap<Integer, String>();
+		String test = "testttttttttttttttttttttttttttt";
+		for (int i = 0; i < count; i++) {
+			map.put(i, test + i);
 		}
 	}
 }
