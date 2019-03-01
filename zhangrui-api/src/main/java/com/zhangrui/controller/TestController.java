@@ -1,7 +1,9 @@
 package com.zhangrui.controller;
 
+import com.zhangrui.domain.request.OpenRegisterParam;
 import com.zhangrui.model.TestAopRequest;
 import com.zhangrui.model.User;
+import com.zhangrui.service.ITestService;
 import com.zhangrui.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class TestController {
 
     @Autowired
     IUserService userService;
+
+    @Autowired
+	ITestService testService;
 
     @RequestMapping(value = "test")
     @ResponseBody
@@ -48,5 +53,11 @@ public class TestController {
 		for (int i = 0; i < count; i++) {
 			map.put(i, test + i);
 		}
+	}
+
+	@RequestMapping(value = "testStrategy")
+	@ResponseBody
+	public void testStrategy(OpenRegisterParam request) throws Exception{
+		testService.testStrategy(request);
 	}
 }
