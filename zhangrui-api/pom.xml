@@ -10,7 +10,7 @@
 	<name>zhangrui-api</name>
 	<description>Demo project for Spring Boot</description>
     <artifactId>zhangrui-api</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,11 +19,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-<!--			<scope>provided</scope>-->
-		</dependency>
 		<dependency>
 			<groupId>com.zhangrui</groupId>
 			<artifactId>zhangrui-service</artifactId>
