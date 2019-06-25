@@ -1,36 +1,36 @@
 package com.zhangrui.algorithms.sort;
 
 /**
- * @Author: ZhangRui
- * @Date: Created at 2018-12-26-15:13
- * @Description: 冒泡排序
+ * @Author: YSTen
+ * @Date: Created at 2019-05-28-13:09
+ * @Description:
  * @Modified: By
  */
-public class BubbleSort {
+public class BubbleSort<T extends Comparable<T>> extends Sort<T> {
 
-    public static int[]  bubbleSort(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (arr[j] > arr[j+1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
-        }
-        return arr;
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {1, 3, 4, 0, 9, 2, 7};
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-        }
-        System.out.println();
-        bubbleSort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-        }
-
-    }
+	@Override
+	public void sort(T[] nums) {
+		Integer N = nums.length;
+		for (int i = 0; i < N; i++) {
+			for (int j = i + 1; j < N - 1 - i; j++) {
+				if (less(nums[j], nums[i])) {
+					swap(nums, j, i);
+				}
+			}
+		}
+	}
+	public static void main(String[] args) {
+		Integer[] nums = {128,0,1,-5,1000};
+		System.out.print("排序前: ");
+		for (Integer num : nums) {
+			System.out.print(num + " ");
+		}
+		System.out.println();
+		Sort<Integer> sort = new BubbleSort<Integer>();
+		sort.sort(nums);
+		System.out.print("排序后: ");
+		for (Integer num : nums) {
+			System.out.print(num + " ");
+		}
+	}
 }
