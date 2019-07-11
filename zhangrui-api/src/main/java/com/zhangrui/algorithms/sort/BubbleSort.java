@@ -1,36 +1,25 @@
 package com.zhangrui.algorithms.sort;
 
 /**
- * @Author: ZhangRui
- * @Date: Created at 2018-12-26-15:13
- * @Description: 冒泡排序
- * @Modified: By
+ * 从左到右不断交换相邻逆序的元素，在一轮的循环之后，可以让未排序的最大元素上浮到右侧。
+ * 在一轮循环中，如果没有发生交换，那么说明数组已经是有序的，此时可以直接退出。
+ * @param <T>
  */
-public class BubbleSort {
+public class BubbleSort<T extends Comparable<T>> extends Sort<T> {
 
-    public static int[]  bubbleSort(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (arr[j] > arr[j+1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+    @Override
+    public void sort(T[] nums) {
+        Integer N = nums.length;
+        boolean isSorted = false;
+        //从后往前比较，直到最后一个元素，如果已经是有序的就结束排序
+        for (int i = N - 1; i > 0 && !isSorted; i--) {
+            isSorted = true;
+            for (int j = 0; j < i; j++) {
+                if (less(nums[j + 1],nums[j])) {
+                    isSorted = false;
+                    swap(nums, j, j + 1);
                 }
             }
         }
-        return arr;
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {1, 3, 4, 0, 9, 2, 7};
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-        }
-        System.out.println();
-        bubbleSort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-        }
-
     }
 }
