@@ -14,7 +14,7 @@ public class SinglyLinkedNode {
         this.val = val;
     }
 
-    public void deleteNode(ListNode node) {
+/*    public void deleteNode(ListNode node) {
 
-    }
+    }*/
 }

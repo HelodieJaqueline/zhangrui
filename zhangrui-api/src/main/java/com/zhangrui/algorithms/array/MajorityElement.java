@@ -1,5 +1,6 @@
 package com.zhangrui.algorithms.array;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +37,16 @@ public class MajorityElement {
 		throw new IllegalArgumentException("The array is illegal!");
 	}
 
+	public static int majorityElementAdvanced(int[] nums) {
+		if (null == nums || nums.length < 1) {
+			throw new NullPointerException("The array is NULL!");
+		}
+		Arrays.sort(nums);
+		return nums[nums.length / 2];
+	}
+
 	public static void main(String[] args) {
 		System.out.println(majorityElement(new int[]{1,2,1,2,2,0,0,0,0,0,0}));
+		System.out.println(majorityElementAdvanced(new int[]{1,2,1,2,2,0,0,0,0,0,0}));
 	}
 }
