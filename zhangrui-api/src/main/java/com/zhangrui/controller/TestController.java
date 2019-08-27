@@ -5,39 +5,38 @@ import com.zhangrui.model.TestAopRequest;
 import com.zhangrui.model.User;
 import com.zhangrui.service.ITestService;
 import com.zhangrui.service.IUserService;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
 @Controller
 @Slf4j
 public class TestController {
 
-    @Autowired
-    IUserService userService;
+	@Autowired
+	IUserService userService;
 
-    @Autowired
+	@Autowired
 	ITestService testService;
 
-    @RequestMapping(value = "test")
-    @ResponseBody
-    public User test(HttpServletRequest request, HttpServletResponse response,String uid,Long id){
-        User user = userService.getById(id);
-        log.info("###########{}#############",user.toString());
-        return user;
-    }
+	@RequestMapping(value = "test")
+	@ResponseBody
+	public User test(HttpServletRequest request, HttpServletResponse response, String uid, Long id) {
+		User user = userService.getById(id);
+		log.info("###########{}#############", user.toString());
+		return user;
+	}
 
 	@RequestMapping(value = "testAop")
 	@ResponseBody
-	public User testAop(HttpServletRequest request, HttpServletResponse response,TestAopRequest testAopRequest){
+	public User testAop(HttpServletRequest request, HttpServletResponse response, TestAopRequest testAopRequest) {
 		User user = new User();
 		user.setName("张三");
 		user.setCreateDate(new Date());
@@ -47,7 +46,7 @@ public class TestController {
 
 	@RequestMapping(value = "testOutOfMemoryError")
 	@ResponseBody
-	public void testOutOfMemoryError(HttpServletRequest request, HttpServletResponse response,Integer count){
+	public void testOutOfMemoryError(HttpServletRequest request, HttpServletResponse response, Integer count) {
 		Map<Integer, String> map = new HashMap<Integer, String>();
 		String test = "testttttttttttttttttttttttttttt";
 		for (int i = 0; i < count; i++) {
@@ -57,7 +56,15 @@ public class TestController {
 
 	@RequestMapping(value = "testStrategy")
 	@ResponseBody
-	public void testStrategy(OpenRegisterParam request) throws Exception{
+	public void testStrategy(OpenRegisterParam request) throws Exception {
 		testService.testStrategy(request);
+	}
+
+
+	@RequestMapping(value = "/testAsync")
+	@ResponseBody
+	public void testAsync() {
+		System.out.println("Controller主线程:" + Thread.currentThread().getName());
+		testService.testAsync();
 	}
 }

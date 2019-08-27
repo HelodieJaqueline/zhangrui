@@ -11,4 +11,7 @@ import com.zhangrui.domain.request.OpenRegisterParam;
 public interface ITestService {
 	void testStrategy(OpenRegisterParam request)
 		throws Exception;
+
+    void testAsync();
+
 }

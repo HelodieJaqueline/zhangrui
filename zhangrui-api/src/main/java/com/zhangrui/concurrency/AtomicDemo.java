@@ -1,4 +1,4 @@
-package com.zhangrui.concurrent;
+package com.zhangrui.concurrency;
 
 import sun.misc.Unsafe;
 

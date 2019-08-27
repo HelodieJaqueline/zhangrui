@@ -3,6 +3,7 @@ package com.zhangrui.service.impl;
 import com.zhangrui.domain.request.OpenRegisterParam;
 import com.zhangrui.service.IRegister;
 import com.zhangrui.service.ITestService;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,6 +22,12 @@ public class TestServiceImpl implements ITestService {
 	@Override
 	public void testStrategy(OpenRegisterParam request) throws Exception {
 		getRegister(request.getState()).doRegister(request);
+	}
+
+	@Override
+	@Async
+	public void testAsync() {
+		System.out.println("子线程:" + Thread.currentThread().getName());
 	}
 
 	private IRegister getRegister(String state) throws Exception {
