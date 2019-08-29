@@ -26,11 +26,29 @@ public class MaxProfitForOne {
         return maxprofit;
     }
 
+    /**
+     * 记录并更新最小价格及最大收益
+     * @param prices
+     * @return
+     */
+    public static int maxProfitAdvance(int[] prices) {
+        int min = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < min) {
+                min = prices[i];
+            } else if ((prices[i] - min) > maxProfit) {
+                maxProfit = prices[i] - min;
+            }
+        }
+        return maxProfit;
+    }
+
     public static void main(String[] args) {
-        int[] prices = new int[]{7,1,5,3,6,4};
-        System.out.println(maxProfit(prices));
+        int[] prices = new int[]{7,3,5,1,6,4};
+        System.out.println(maxProfitAdvance(prices));
         int[] prices1 = new int[]{7,6,4,3,1};
-        System.out.println(maxProfit(prices1));
+        System.out.println(maxProfitAdvance(prices1));
     }
 
 }
