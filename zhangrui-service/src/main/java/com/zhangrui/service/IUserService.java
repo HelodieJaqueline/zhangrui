@@ -7,4 +7,6 @@ public interface IUserService {
     User getById(Long id);
 
     String sendMessage(String type);
+
+
 }
