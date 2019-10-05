@@ -16,3 +16,4 @@
 | ls -l /proc/${pid}/cwd                                 | 查找pid对于进程的目录      |                                                              |
 | ps -eLf\|grep java -c                                  | 查询Java线程数量           |                                                              |
 | ulimit -u                                              | 查看操作系统允许最大线程数 |                                                              |
+|                                                        |                            |                                                              |
