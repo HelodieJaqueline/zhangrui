@@ -1,4 +1,4 @@
-package com.zhangrui.concurrency;
+package com.zhangrui.concurrency.locks;
 
 public class ReentrantDemo {
     public synchronized void demo(){

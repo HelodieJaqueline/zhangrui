@@ -1,4 +1,4 @@
-package com.zhangrui.concurrency;
+package com.zhangrui.concurrency.locks;
 
 import java.util.HashMap;
 import java.util.Map;
