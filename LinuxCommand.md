@@ -16,4 +16,7 @@
 | ls -l /proc/${pid}/cwd                                 | 查找pid对于进程的目录      |                                                              |
 | ps -eLf\|grep java -c                                  | 查询Java线程数量           |                                                              |
 | ulimit -u                                              | 查看操作系统允许最大线程数 |                                                              |
+| jmap -heap PID                                         | 打印出堆内存相关信息       |                                                              |
+| jmap -dump:format=b,file=heap.hprof PID                | dump内存                   |                                                              |
+|                                                        |                            |                                                              |
 |                                                        |                            |                                                              |
