@@ -23,7 +23,6 @@ public class HappyNumber {
      * 62 + 82 = 100
      * 12 + 02 + 02 = 1
      */
-    @Transactional
     public static boolean isHappy(int n) {
 
         return false;
