@@ -1,5 +1,6 @@
-package com.zhangrui.annotation;
+package com.zhangrui.service.aop;
 
+import com.zhangrui.service.annotation.AopLog;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
@@ -28,7 +29,7 @@ public class ApiLogAop {
 	private void controllerAspect() {
 	}
 
-	@Pointcut("@within(com.zhangrui.annotation.AopLog)")
+	@Pointcut("@within(com.zhangrui.service.annotation.AopLog)")
 	private void logLayer() {
 	}
 

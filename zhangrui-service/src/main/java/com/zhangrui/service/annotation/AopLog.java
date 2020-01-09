@@ -1,4 +1,4 @@
-package com.zhangrui.annotation;
+package com.zhangrui.service.annotation;
 
 import java.lang.annotation.*;
 
