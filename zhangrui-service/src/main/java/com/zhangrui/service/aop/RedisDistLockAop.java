@@ -28,46 +28,47 @@ public class RedisDistLockAop {
 	@Autowired
 	private RedissonClient redissonClient;
 
-	@Pointcut("@within(com.zhangrui.service.annotation.RedisDistLock)")
+	@Pointcut("@annotation(com.zhangrui.service.annotation.RedisDistLock)")
 	private void lockLayer() {
 	}
 
 	@Around("lockLayer()")
 	public Object execute(ProceedingJoinPoint jp) throws Throwable {
 		MethodSignature signature = (MethodSignature) jp.getSignature();
-		Method method = signature.getMethod();
-		RedisDistLock redisDistLock = method.getAnnotation(RedisDistLock.class);
-		//没有key不加锁
-		if (null == redisDistLock || StringUtils.isBlank(redisDistLock.key())) {
-			return jp.proceed();
+		if (null != signature) {
+			Method method = signature.getMethod();
+			if (null != method) {
+				//执行加锁操作
+				return lock(jp,method.getAnnotation(RedisDistLock.class));
+			}
 		}
-		return lock(jp,redisDistLock);
+		return jp.proceed();
 	}
 
 	private Object lock(ProceedingJoinPoint jp, RedisDistLock redisDistLock) throws Throwable {
 		RLock lock = redissonClient.getLock(redisDistLock.key());
-		if (null == lock) {
-			return jp.proceed();
-		}
 		return redisDistLock.releaseWithTime() ? doLock(jp, lock, redisDistLock.leaseTime(), redisDistLock.unit())
 			: doLock(jp, lock);
 	}
 
 	private Object doLock(ProceedingJoinPoint jp, RLock lock, long leaseTime, TimeUnit unit) throws Throwable {
 		lock.lock(leaseTime, unit);
-		try {
-			return jp.proceed();
-		}finally {
-			lock.unlock();
-		}
+		return doProceedAndUnlock(jp, lock);
 	}
+
 
 	private Object doLock(ProceedingJoinPoint jp, RLock lock) throws Throwable {
 		lock.lock();
+		return doProceedAndUnlock(jp, lock);
+	}
+
+	private Object doProceedAndUnlock(ProceedingJoinPoint jp, RLock lock) throws Throwable {
 		try {
 			return jp.proceed();
-		}finally {
-			lock.unlock();
+		} finally {
+			if (lock.isLocked()) {
+				lock.unlock();
+			}
 		}
 	}
 }

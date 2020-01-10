@@ -18,13 +18,15 @@ public class RedisServiceImpl implements IRedisService {
     @Override
     @RedisDistLock(key = LOCK_PREFIX)
     public String lock(String id) {
-        try {
+        System.out.println("获取到锁了！");
+        throw new RuntimeException("测试异常");
+/*        try {
             System.out.println("获取到锁了！");
             TimeUnit.SECONDS.sleep(15);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-        return id;
+        }*/
+        //return id;
     }
 
     @Override
@@ -37,5 +39,7 @@ public class RedisServiceImpl implements IRedisService {
             e.printStackTrace();
         }
         return id;
+/*        System.out.println("获取到锁了！");
+        throw new RuntimeException("测试异常");*/
     }
 }
