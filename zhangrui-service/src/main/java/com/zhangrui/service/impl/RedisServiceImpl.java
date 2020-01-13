@@ -1,8 +1,10 @@
 package com.zhangrui.service.impl;
 
 import com.zhangrui.service.IRedisService;
+import com.zhangrui.service.annotation.Key;
 import com.zhangrui.service.annotation.RedisDistLock;
 import java.util.concurrent.TimeUnit;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,7 +32,7 @@ public class RedisServiceImpl implements IRedisService {
     }
 
     @Override
-    @RedisDistLock(key = LOCK_PREFIX, releaseWithTime = true)
+    @RedisDistLock(key = LOCK_PREFIX + "#id", releaseWithTime = true)
     public String lockTime(String id) {
         try {
             System.out.println("获取到锁了！");
