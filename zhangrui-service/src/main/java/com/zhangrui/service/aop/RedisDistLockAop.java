@@ -51,12 +51,28 @@ public class RedisDistLockAop {
 			: doLock(jp, lock);
 	}
 
+	/**
+	 * 带超时的锁
+	 * @param jp
+	 * @param lock
+	 * @param leaseTime
+	 * @param unit
+	 * @return
+	 * @throws Throwable
+	 */
 	private Object doLock(ProceedingJoinPoint jp, RLock lock, long leaseTime, TimeUnit unit) throws Throwable {
 		lock.lock(leaseTime, unit);
 		return doProceedAndUnlock(jp, lock);
 	}
 
 
+	/**
+	 * 一直持有锁直到执行释放锁的操作
+	 * @param jp
+	 * @param lock
+	 * @return
+	 * @throws Throwable
+	 */
 	private Object doLock(ProceedingJoinPoint jp, RLock lock) throws Throwable {
 		lock.lock();
 		return doProceedAndUnlock(jp, lock);

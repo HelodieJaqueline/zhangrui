@@ -1,10 +1,8 @@
 package com.zhangrui.service.impl;
 
 import com.zhangrui.service.IRedisService;
-import com.zhangrui.service.annotation.Key;
 import com.zhangrui.service.annotation.RedisDistLock;
 import java.util.concurrent.TimeUnit;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 /**
