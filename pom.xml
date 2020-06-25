@@ -22,6 +22,7 @@
 		<module>zhangrui-service</module>
 		<module>zhangrui-repository</module>
 		<module>zhangrui-domain</module>
+		<module>zhangrui-common</module>
 	</modules>
 
 	<properties>
