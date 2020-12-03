@@ -19,7 +19,7 @@ public class MapUtils {
         }
         Class<?> clazz = object.getClass();
         Field[] fields = clazz.getDeclaredFields();
-        if (null == fields || 0 == fields.length) {
+        if (0 == fields.length) {
             return null;
         }
         Map<String, Object> map = new HashMap<String, Object>();

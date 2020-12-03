@@ -1,7 +1,10 @@
 package com.zhangrui.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-public class EmailRequest extends BaseRequest{
+@EqualsAndHashCode(callSuper = true)
+public class EmailRequest extends BaseRequest {
+
 }

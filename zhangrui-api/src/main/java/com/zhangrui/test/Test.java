@@ -10,6 +10,15 @@ import static com.zhangrui.test.Constant.CONSTANT;
  */
 public class Test {
 	public static void main(String[] args) {
-		System.out.println(CONSTANT);
+		//System.out.println(CONSTANT);
+		int flag =1;
+		switch (flag) {
+			case 2:
+				System.out.println(2);
+				break;
+			case 3:
+				System.out.println(3);
+				break;
+		}
 	}
 }
