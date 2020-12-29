@@ -1,5 +1,6 @@
 package com.zhangrui.utils;
 
+import java.time.LocalDate;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
@@ -26,7 +27,10 @@ public class AuthTokenUtils {
 	}
 
 	public static void main(String[] args) {
-		String token = getToken("1981233211", "GlGJssyQYhfBQz", Long.toHexString(System.currentTimeMillis()));
-		System.out.println(token);
+/*		String token = getToken("1981233211", "GlGJssyQYhfBQz", Long.toHexString(System.currentTimeMillis()));
+		System.out.println(token);*/
+		String time = LocalDate.now().toString();
+		System.out.println(time);
+		System.out.println(DigestUtils.md5Hex(time));
 	}
 }

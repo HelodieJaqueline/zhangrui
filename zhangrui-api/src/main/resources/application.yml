@@ -24,7 +24,7 @@ spring:
         loginPassword: xxx
   redis:
     password: 123456
-    host: 192.168.81.66
+    host: 127.0.0.1
 mybatis:
     mapper-locations: com.zhangrui.*.repository.mapper/*.xml
 server:
