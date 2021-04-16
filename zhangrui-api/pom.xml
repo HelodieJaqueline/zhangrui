@@ -19,11 +19,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.zhangrui</groupId>
-			<artifactId>zhangrui-service</artifactId>
-			<version>${project.version}</version>
-		</dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>

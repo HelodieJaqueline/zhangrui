@@ -1,7 +1,7 @@
 package com.zhangrui.redis;
 
 import com.zhangrui.service.IRedisService;
-import com.zhangrui.service.annotation.AopLog;
+import com.zhangrui.interceptor.annotation.AopLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

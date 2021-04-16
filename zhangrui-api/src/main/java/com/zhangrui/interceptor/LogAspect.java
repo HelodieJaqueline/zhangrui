@@ -38,7 +38,7 @@ public class LogAspect {
         // controller切面
     }
 
-    @Pointcut("@within(com.zhangrui.annotation.log.AopLog) || @annotation(com.zhangrui.annotation.log.AopLog)")
+    @Pointcut("@within(com.zhangrui.study.annotation.log.AopLog) || @annotation(com.zhangrui.study.annotation.log.AopLog)")
     public void logLayer() {
         // AopLog注解切面
     }
