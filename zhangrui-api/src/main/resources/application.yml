@@ -25,6 +25,16 @@ spring:
   redis:
     password: 123456
     host: 127.0.0.1
+  kafka:
+    bootstrap-servers: 192.168.81.66:9092,192.168.81.67:9092,192.168.81.68:9092
+    producer:
+      retries: 3
+      acks: 1
+    consumer:
+      group-id: order
+      auto-offset-reset: earliest
+      auto-commit-interval: 100
+      max-poll-records: 5
 mybatis:
     mapper-locations: com.zhangrui.repository.mapper/*.xml
 server:
