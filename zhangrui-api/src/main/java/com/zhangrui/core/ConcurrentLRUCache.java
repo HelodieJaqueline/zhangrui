@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @author: ZhangRui
  * @create: 2021-05-13 22:06
  **/
-public class MyLruCache<K, V> {
+public class ConcurrentLRUCache<K, V> {
 
     /**
      * 缓存的最大容量
@@ -27,7 +27,7 @@ public class MyLruCache<K, V> {
     private Lock writeLock = readWriteLock.writeLock();
     private Lock readLock = readWriteLock.readLock();
 
-    public MyLruCache(int maxCapacity) {
+    public ConcurrentLRUCache(int maxCapacity) {
         if (maxCapacity < 0) {
             throw new IllegalArgumentException("Illegal max capacity: " + maxCapacity);
         }
@@ -105,7 +105,7 @@ public class MyLruCache<K, V> {
     }
 
     public static void main(String[] args) {
-        MyLruCache cache = new MyLruCache(4);
+        ConcurrentLRUCache cache = new ConcurrentLRUCache(4);
         cache.put(1, 1);
         Object value = cache.get(1);
         System.out.println(value);
