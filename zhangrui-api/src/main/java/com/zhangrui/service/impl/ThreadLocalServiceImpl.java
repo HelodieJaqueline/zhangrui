@@ -1,5 +1,6 @@
 package com.zhangrui.service.impl;
 
+import com.zhangrui.config.InheritableContext;
 import com.zhangrui.service.ThreadLocalService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
@@ -16,14 +17,12 @@ public class ThreadLocalServiceImpl implements ThreadLocalService {
 
     @Override
     public void threadLocal() {
-        Long tenantId = new InheritableThreadLocal<Long>().get();
-        log.info("tenantId:{}", tenantId);
+        log.info("SYNC tenantId:{}", InheritableContext.get());
     }
 
     @Override
     @Async
     public void asyncThreadLocal() {
-        Long tenantId = new InheritableThreadLocal<Long>().get();
-        log.info("tenantId:{}", tenantId);
+        log.info("ASYNC tenantId:{}", InheritableContext.get());
     }
 }

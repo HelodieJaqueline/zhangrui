@@ -21,16 +21,16 @@ public class ZhangruiApplication{
 		SpringApplication.run(ZhangruiApplication.class);
 	}
 
-    @Bean
+/*    @Bean
     public Executor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(2);
         executor.setMaxPoolSize(2);
         executor.setQueueCapacity(500);
-        executor.setThreadNamePrefix("zhangrui-thread-pool-");
+        executor.setThreadNamePrefix("zr-thread-pool-");
         executor.initialize();
         return executor;
-    }
+    }*/
 
 /*    @Bean
     public CommandLineRunner demo(CustomerRepository repository) {
