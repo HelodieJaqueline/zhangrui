@@ -1,5 +1,7 @@
 package com.zhangrui;
 
+import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
+import io.prometheus.client.spring.boot.EnableSpringBootMetricsCollector;
 import java.util.concurrent.Executor;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
@@ -14,6 +16,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @MapperScan("com.zhangrui.repository.mapper.*")
 @EnableAsync
+@EnablePrometheusEndpoint
+@EnableSpringBootMetricsCollector
 @Slf4j
 public class ZhangruiApplication{
 
