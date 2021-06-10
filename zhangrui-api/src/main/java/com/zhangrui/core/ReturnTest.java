@@ -13,7 +13,6 @@ public class ReturnTest {
         System.out.println(returnTest());
 
         System.out.println(2 >> 1);
-        Collections.synchronizedList();
     }
 
     public static boolean returnTest() {
