@@ -1,4 +1,5 @@
 package com.zhangrui.repository.mapper.user;
+import org.apache.ibatis.annotations.Param;
 
 
 import com.zhangrui.model.User;
@@ -15,4 +16,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    String getNameById(@Param("id")Long id);
 }
