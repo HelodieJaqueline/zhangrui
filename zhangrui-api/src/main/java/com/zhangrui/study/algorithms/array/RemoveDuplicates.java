@@ -25,8 +25,25 @@ public class RemoveDuplicates {
         return uniquSet.size();
     }
 
+    public static int removeDuplicatesV2(int[] nums) {
+        int length = nums.length;
+        if (length < 1) {
+            return 0;
+        }
+        int fast = 1, slow = 0;
+        while (fast < length) {
+            if (nums[fast] != nums[slow]) {
+                slow++;
+                nums[slow] = nums[fast];
+            }
+            fast++;
+        }
+        return slow + 1;
+    }
+
     public static void main(String[] args) {
         System.out.println(removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}));
+        System.out.println(removeDuplicatesV2(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}));
     }
 
 }
