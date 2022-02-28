@@ -1,3 +1,4 @@
+/*
 package com.zhangrui.interceptor.aop;
 
 import com.zhangrui.interceptor.annotation.RedisDistLock;
@@ -14,11 +15,13 @@ import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+*/
 /**
  * @description: 基于Redisson的分布式锁切面
  * @author: ZhangRui
  * @create: 2020-01-09 10:32
- **/
+ **//*
+
 @Aspect
 @Component
 @Slf4j
@@ -50,7 +53,8 @@ public class RedisDistLockAop {
 			: doLock(jp, lock);
 	}
 
-	/**
+	*/
+/**
 	 * 带超时的锁
 	 * @param jp
 	 * @param lock
@@ -58,20 +62,23 @@ public class RedisDistLockAop {
 	 * @param unit
 	 * @return
 	 * @throws Throwable
-	 */
+	 *//*
+
 	private Object doLock(ProceedingJoinPoint jp, RLock lock, long leaseTime, TimeUnit unit) throws Throwable {
 		lock.lock(leaseTime, unit);
 		return doProceedAndUnlock(jp, lock);
 	}
 
 
-	/**
+	*/
+/**
 	 * 一直持有锁直到执行释放锁的操作
 	 * @param jp
 	 * @param lock
 	 * @return
 	 * @throws Throwable
-	 */
+	 *//*
+
 	private Object doLock(ProceedingJoinPoint jp, RLock lock) throws Throwable {
 		lock.lock();
 		return doProceedAndUnlock(jp, lock);
@@ -87,3 +94,4 @@ public class RedisDistLockAop {
 		}
 	}
 }
+*/
