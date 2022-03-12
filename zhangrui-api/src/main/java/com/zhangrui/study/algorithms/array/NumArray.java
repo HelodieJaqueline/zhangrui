@@ -29,10 +29,13 @@ package com.zhangrui.study.algorithms.array;
  */
 public class NumArray {
 
-    private int[] nums;
+    private int[] preNums;
 
     public NumArray(int[] nums) {
-        this.nums = nums;
+      this.preNums = new int[nums.length + 1];
+      for (int i = 1; i < preNums.length; i++) {
+          preNums[i] = nums[i - 1] + preNums[i - 1];
+      }
     }
 
     /**
@@ -42,23 +45,7 @@ public class NumArray {
      * @return
      */
     public int sumRange(int left, int right) {
-        if(left< 0 || right <0){
-            return 0;
-        }
-        if(left >right ){
-            return 0;
-        }
-        if(left >nums.length || right >nums.length){
-            return 0;
-        }
-        if(left == right){
-            return nums[right];
-        }
-        int res =0;
-        for(int i =left;i <=right;i++){
-            res +=nums[i];
-        }
-        return res;
+        return preNums[right + 1] - preNums[left];
     }
 
 }
