@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ListNode {
 
-    int value;
+    int val;
 
     ListNode next;
 
@@ -20,7 +20,12 @@ public class ListNode {
         return null != next;
     }
 
-    public ListNode(int value) {
-        this.value = value;
+    public ListNode(int val) {
+        this.val = val;
+    }
+
+    public ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
     }
 }
