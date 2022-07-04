@@ -24,5 +24,26 @@ public class LengthOfLongestSubstring {
 
     public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(lengthOfLongestSubstringWithWindow("abcabcbb"));
     }
+
+    public static int lengthOfLongestSubstringWithWindow(String s) {
+        int left = 0, right = 0;
+        int result = 0;
+        Map<Character, Integer> window = new HashMap<Character, Integer>(s.length());
+        while (right < s.length()) {
+            char r = s.charAt(right);
+
+            right++;
+            window.put(r, window.getOrDefault(r, 0) + 1);
+            while (window.get(r) > 1) {
+                char l = s.charAt(left);
+                left++;
+                window.put(l, window.getOrDefault(l, 1) - 1);
+            }
+            result = Math.max(result, right - left);
+        }
+        return result;
+    }
+
 }
