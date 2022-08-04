@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 /**
  * @Author: zhangrui
+ * 使用链表和HashMap实现(类似LinkedHashMap)
+ * 定义双向链表
  * @Description:
  * @Date: 2021/12/9 16:05
  */

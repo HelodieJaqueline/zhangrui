@@ -39,7 +39,7 @@ public class LengthOfLongestSubstring {
             while (window.get(r) > 1) {
                 char l = s.charAt(left);
                 left++;
-                window.put(l, window.getOrDefault(l, 1) - 1);
+                window.put(l, window.get(l) - 1);
             }
             result = Math.max(result, right - left);
         }

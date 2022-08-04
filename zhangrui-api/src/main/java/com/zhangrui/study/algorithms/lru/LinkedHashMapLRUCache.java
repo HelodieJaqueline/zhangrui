@@ -45,5 +45,8 @@ public class LinkedHashMapLRUCache<K, V> extends LinkedHashMap<K, V> {
         cache.put("6", "6");
         cache.put("7", "7");
         System.out.println(cache.keySet());
+        do {
+
+        } while (cache != null);
     }
 }

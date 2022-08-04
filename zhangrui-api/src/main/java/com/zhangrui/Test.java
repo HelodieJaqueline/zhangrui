@@ -1,7 +1,7 @@
 package com.zhangrui;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
 import org.apache.commons.lang.StringUtils;
 
 public class Test {
@@ -24,13 +24,15 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        String value = "[赠送课时数]-[退费赠送课时数]";
+/*        String value = "[赠送课时数]-[退费赠送课时数]";
         String[] strings = StringUtils.substringsBetween(value, LEFT_BRACKETS, RIGHT_BRACKETS);
         System.out.println(value);
         for (String string : strings) {
             value = value.replace(LEFT_BRACKETS.concat(string).concat(RIGHT_BRACKETS),
                 LEFT_BRACKETS.concat(MAP.get(string)).concat(RIGHT_BRACKETS));
         }
-        System.out.println(value);
+        System.out.println(value);*/
+        String a = "I hava a word have word af jl,a-j.abcd;12:312  af";
+
     }
 }
