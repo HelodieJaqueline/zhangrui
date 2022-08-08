@@ -39,31 +39,24 @@ package com.zhangrui.study.algorithms;
 public class ReverseInteger {
 
     public static void main(String[] args) {
-        int reverse = new ReverseInteger().reverse(-2147483648);
+        int reverse = new ReverseInteger().reverse(-214748364);
         System.out.println(reverse);
     }
 
 
     public int reverse(int x) {
-        boolean blewZero = false;
-        if (x < 0) {
-            blewZero = true;
-            x = Math.abs(x);
+        int rev = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            x /= 10;
+            if (rev > Integer.MAX_VALUE/10 || (rev == Integer.MAX_VALUE / 10 && pop > 7)) {
+                return 0;
+            }
+            if (rev < Integer.MIN_VALUE/10 || (rev == Integer.MIN_VALUE / 10 && pop < -8)) {
+                return 0;
+            }
+            rev = rev * 10 + pop;
         }
-        String str = String.valueOf(x);
-        int length = str.length();
-        char[] result = new char[length];
-        for (int i = 0; i < length; i++) {
-            result[i] = str.charAt(length-1 - i);
-        }
-        String s = new String(result);
-        if (blewZero) {
-            s = "-".concat(s);
-        }
-        Long value = Long.valueOf(s);
-        if (value > Integer.MAX_VALUE || value < Integer.MIN_VALUE) {
-            return 0;
-        }
-        return value.intValue();
+        return rev;
     }
 }
