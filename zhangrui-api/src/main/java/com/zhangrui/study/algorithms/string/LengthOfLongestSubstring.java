@@ -28,18 +28,17 @@ public class LengthOfLongestSubstring {
     }
 
     public static int lengthOfLongestSubstringWithWindow(String s) {
+        Map<Character, Integer> window = new HashMap<>();
         int left = 0, right = 0;
         int result = 0;
-        Map<Character, Integer> window = new HashMap<Character, Integer>(s.length());
         while (right < s.length()) {
-            char r = s.charAt(right);
-
+            char c = s.charAt(right);
             right++;
-            window.put(r, window.getOrDefault(r, 0) + 1);
-            while (window.get(r) > 1) {
-                char l = s.charAt(left);
+            window.put(c, window.getOrDefault(c, 0) + 1);
+            while (window.get(c) > 1) {
+                char d = s.charAt(left);
                 left++;
-                window.put(l, window.get(l) - 1);
+                window.put(d, window.get(d) - 1);
             }
             result = Math.max(result, right - left);
         }
