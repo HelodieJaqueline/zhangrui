@@ -20,6 +20,6 @@
 | jmap -dump:format=b,file=heap.hprof PID                      | dump内存                   |                                                              |
 | git config --global https.proxy http://127.0.0.1:1080 <br />git config --global https.proxy https://127.0.0.1:1080 <br />git config --global http.proxy 'socks5://127.0.0.1:1080' <br />git config --global https.proxy 'socks5://127.0.0.1:1080' | git 设置http代理           |                                                              |
 | git config --global --unset http.proxy<br />git config --global --unset https.proxy | git 取消http代理           |                                                              |
-| git checkout -b <branch_name> <tag_name>                     | 根据tag号切分支            |                                                              |
-|                                                              |                            |                                                              |
-|                                                              |                            |                                                              |
+| git checkout -b <branch_name> <tag_name>                     | 根据tag号创建新分支        |                                                              |
+| git branch <branch_name>                                     | 创建新分支                 |                                                              |
+| git checkout <branch_name>                                   | 切换到另一个分支           | 新版本推荐git switch <branch_name>                           |
