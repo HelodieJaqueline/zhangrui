@@ -23,7 +23,7 @@ public class RansomNode {
         for (int i = 0; i < ransomNote.length(); i++) {
             char c = ransomNote.charAt(i);
             if (magazineList.contains(c)) {
-                magazineList.remove(c);
+                magazineList.remove(magazineList.indexOf(c));
             } else {
                 return false;
             }
