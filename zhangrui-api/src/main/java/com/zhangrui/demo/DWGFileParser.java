@@ -8,6 +8,5 @@ public class DWGFileParser {
 
 
     public static void main(String[] args) {
-        DWGParser
     }
 }

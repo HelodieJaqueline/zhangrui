@@ -1,6 +1,6 @@
 package com.zhangrui.study.algorithms;
 
-public class HappyNumber {
+public class LengthOfLastWord {
     public int lengthOfLastWord(String s) {
         s=s.trim();
         // String arr[] = s.split(" ");
