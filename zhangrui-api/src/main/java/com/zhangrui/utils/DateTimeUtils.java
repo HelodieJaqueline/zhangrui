@@ -2,8 +2,10 @@ package com.zhangrui.utils;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.TemporalAccessor;
+import java.time.temporal.TemporalAmount;
 import java.util.Date;
 
 /**
@@ -32,4 +34,13 @@ public class DateTimeUtils {
     public static LocalDateTime of(long epochMilli) {
         return LocalDateTimeUtil.of(epochMilli);
     }
+
+    public static LocalDate addDay(LocalDate localDate, int day) {
+        return localDate.plusDays(day);
+    }
+
+    public static LocalDate minusDay(LocalDate localDate, int day) {
+        return localDate.minusDays(day);
+    }
+
 }
