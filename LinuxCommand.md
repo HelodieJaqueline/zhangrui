@@ -23,3 +23,4 @@
 | git checkout -b <branch_name> <tag_name>                     | 根据tag号创建新分支        |                                                              |
 | git branch <branch_name>                                     | 创建新分支                 |                                                              |
 | git checkout <branch_name>                                   | 切换到另一个分支           | 新版本推荐git switch <branch_name>                           |
+| echo $PATH                                                   | 打印环境变量               | 也可以用printenv PATH                                        |
