@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ListNode {
 
-    int val;
+    public int val;
 
-    ListNode next;
+    public ListNode next;
 
     public boolean hasNext() {
         return null != next;
