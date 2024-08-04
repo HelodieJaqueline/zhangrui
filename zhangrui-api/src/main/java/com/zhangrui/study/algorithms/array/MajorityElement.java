@@ -45,8 +45,28 @@ public class MajorityElement {
 		return nums[nums.length / 2];
 	}
 
+	public static int majorityElementV3(int[] nums) {
+		if(nums.length == 0){
+			return 0;
+		}
+		int count =0;
+		int target =0;
+		for(int i =0;i < nums.length;i++){
+			if(count == 0){
+				target = nums[i];
+				count = 1;
+			} else if(nums[i] == target){
+				count++;
+			} else{
+				count--;
+			}
+		}
+		return target;
+	}
+
 	public static void main(String[] args) {
 		System.out.println(majorityElement(new int[]{1,2,1,2,2,0,0,0,0,0,0}));
 		System.out.println(majorityElementAdvanced(new int[]{1,2,1,2,2,0,0,0,0,0,0}));
+		System.out.println(majorityElementV3(new int[]{1,2,1,2,2,0,0,0,0,0,0}));
 	}
 }
